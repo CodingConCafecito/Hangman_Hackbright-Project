@@ -1,9 +1,7 @@
 import random
 # import random library to be able to assign a random mystery word to the player
 
-""" from words import word_list """
-#import list that is on a separate python file that contains the mystery words
-word_list = ["hello", "blues", "berry", "house"] # test out with a few words first
+from words import word_list
 
 def picking_mystery_word():
     #returns  random mystery word that player has to guess 
@@ -12,65 +10,64 @@ def picking_mystery_word():
     
 def introducing_game():
     # welcomes the player and explains the game
-    print()
-    print("Welcome!")
-    print("Save PEPINO the 🐍 from BENITO the 🦅 by figuring out what the mystery word is. You have 6 chances to help PEPINO 🐍 escape! Good luck!")
+    print("\n")
+    print("Welcome! \nSave PEPINO the 🐍 from BENITO the 🦅 by figuring out what the 5 letter mystery word is. You only have 7 chances to help PEPINO 🐍 escape! \nGood luck!")
 
 def print_emoji_status(attempts_available):
     # prints how far 🐍 and 🦅 are from eachother    
     if attempts_available == 7:
         print ("""
-        ...... 🦅💨
-    ......
-        ......
-    ......
-        ......
-    ......
-        ......
+         ....... 🦅💨
+    .......
+         .......
+    .......
+         .......
+    .......
+         .......
     🐍 😎""")
     elif attempts_available == 6:
         print("""
-    ...... 🦅💨
-        ......
-    ......
-        ......
-    ......
-        ......
-    🐍❓""")
+    ....... 🦅💨
+         .......
+    .......
+         .......
+    .......
+         .......
+    🐍 ❓""")
     elif attempts_available == 5:
         print("""
-        ...... 🦅💨
-    ......
-        ......
-    ......
-        ......
-    🐍🤔""")
+         ....... 🦅💨
+    .......
+         .......
+    .......
+         .......
+    🐍 🤔""")
     elif attempts_available == 4:
         print("""
-    ...... 🦅💨
-        ......
-    ......
-        ......
-    🐍🤨""")
+    ....... 🦅💨
+         .......
+    .......
+         .......
+    🐍 🤨""")
     elif attempts_available == 3:
         print("""
-        ...... 🦅💨
-    ......
-        ......
-    🐍🤨""")
+         ....... 🦅💨
+    .......
+         .......
+    🐍 😮""")
     elif attempts_available == 2:
         print("""
-    ...... 🦅💨
-        ......
-    🐍🤨""")
+    ....... 🦅💨
+         .......
+    🐍 😨""")
     elif attempts_available == 1:
         print("""
-        ...... 🦅💨
-    🐍🆘""")
+         ....... 🦅💨
+    🐍 🆘""")
     else:
         print("""
-      💥🦅
-    🐍😱""")
+        💥🦅
+    🐍 😱""")
 
 
 def play_game(mystery_word):
@@ -109,7 +106,7 @@ def play_game(mystery_word):
             else: #if guess not in mystery_word
                 letters_guessed.append(guess)
                 attempts_available = attempts_available - 1
-                print("Muhaha... 🦅 ")
+                print("Muhaha! 🦅")
                 print()
                 print("Incorrect guess❗️", guess,"is not in the word.")
 
@@ -121,17 +118,15 @@ def play_game(mystery_word):
         print("Mystery Word:", mystery_word_display, "🔍")
         
     if game_over: #once game_over = True 
-        print("""Congrats, you found the mystery word! 🎉 
-PEPINO IS SAFE! 💕 🐍""")
+        print("Congrats, you found the mystery word! 🎉 \nPEPINO IS SAFE! 💕 🐍")
     else:
-        print("""Oh no! 😭 BENITO flew away with PEPINO. 🦅 
-The mystery word was: """, mystery_word,"!")
+        print("Oh no! 😭 BENITO flew away with PEPINO. 🦅 \nThe mystery word was:", mystery_word, "👀")
     print()
     
 def replay_game():
     # asks player if they want to play again
     while True:
-        choice = input("Want to play again? Enter Y for yes or N for No. \n > ").upper() # \n prints what follows on another line
+        choice = input("Want to play again? Enter Y for yes or N for No. \n> ").upper() # \n prints what follows on another line
         if choice == "Y" or choice == "N":
             return choice
         else:
@@ -152,13 +147,14 @@ def start_hangman():
 
 start_hangman()
 
+#NICE TO HAVES:
+""" > Use colorama library to customize the color of the text
+    > Use time library to edit how fast/slow specific code is executed
+    > Personalize the game more by asking for their name"""
 
-# NICE TO HAVE's:
+# FUTURE UPDATES:
 """ 
-# > Player can guess the entire word 
-# > Player can choose level of difficulty which changes how many attempts they have available to them
-# > Player can choose a theme for the mystery words they are guessing. Each theme pulls up a different list of mystery words.
-# > Use colorama library to customize the color of the text
-# > Use time library to edit how fast/slow specific code is executed
-# > Personalize the game more by asking for their name
-# > If sounds can be played from terminal, add sounds """
+> Player can guess the entire word 
+> Player can choose level of difficulty which changes how many attempts they have available to them
+> Player can choose a theme for the mystery words they are guessing. Each theme pulls up a different list of mystery words.
+> If sounds can be played from terminal, add sounds """
