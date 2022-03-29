@@ -1,6 +1,3 @@
-# This is a variation of the game hangman.
-# Player needs to guess the 5 letter mystery word before the 🦅 (eagle) reaches the 🐍 (snake).
-
 import random
 # import random library to be able to assign a random mystery word to the player
 
