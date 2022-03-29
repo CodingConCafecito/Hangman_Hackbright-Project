@@ -76,7 +76,6 @@ def print_emoji_status(attempts_available):
 def play_game(mystery_word):
     #updates variables, validates guesses, checks if player wins/loses
     mystery_word_display = "_" * len(mystery_word)
-    indices_of_letters_that_match_guess = [] # used to replace "_" with correct letters
     game_over = False
     letters_guessed = []
     attempts_available = 7
@@ -99,20 +98,10 @@ def play_game(mystery_word):
 
                 mystery_word_list = list(mystery_word_display) # makes mystery_word_status_display a list
                 
-                # indices_of_letters_that_match_guess = [i for i, letter in enumerate(mystery_word) if letter == guess]
-                #     # if letter in guess matches with a letter in the mystery_word, make a list of the index that letter
-                #     # allows us to have a "new" list after each iteration, hence avoiding the bugs associated with append
-                
-                # for index in indices_of_letters_that_match_guess:
-                #     mystery_word_list[index] = guess # replaces the _ with the letter guessed 
-                
-                # mystery_word_display = "".join(mystery_word_list) # would have been nice to print them spaced out
-
-                """ this apparently works~!"""
                 for i, letter in enumerate(mystery_word):
                     if letter == guess:
-                        mystery_word_list[i] = guess
-                        mystery_word_display = "".join(mystery_word_list)
+                        mystery_word_list[i] = guess # if letter == guess, then at that index of this  list, the "_" is replaced with the letter guessed
+                        mystery_word_display = "".join(mystery_word_list) # joins all the elements in the list
 
                 if "_" not in mystery_word_display:
                     game_over = True
@@ -140,20 +129,16 @@ The mystery word was: """, mystery_word,"!")
     print()
     
 def replay_game():
-    # asks user if they want to play again or exit the program
+    choice = input("Would you like to play again? Enter 'Y' for yes and 'N' for no. ").upper()
     while True:
-        choice = input("Would you like to play again? Enter 'Y' for yes and 'N' for no.").lower()
-        if choice == "y":
-            print()
+        if choice == "N":
+            print("Goodbye!")
+            break 
+        elif choice == "Y":
             print("Awesome! Good luck. 🤗")
             start_hangman()
-        elif choice == "n":
-            print("Goodbye!")
-            break
         else:
             print("Please enter Y or N.")
-
-    """Bug: after winning more than twice in a row, it will not recognize a N input and ask the user again."""
 
 def start_hangman():
     # houses the functions that run the game
@@ -174,5 +159,3 @@ start_hangman()
 # > Use time library to edit how fast/slow specific code is executed
 # > Personalize the game more by asking for their name
 # > If sounds can be played from terminal, add sounds """
-
-
