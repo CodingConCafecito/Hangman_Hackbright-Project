@@ -10,12 +10,12 @@ def picking_mystery_word():
     
 def introducing_game():
     # welcomes the player and explains the game
-    print("\n")
-    print("Welcome! \nSave PEPINO the 🐍 from BENITO the 🦅 by figuring out what the 5 letter mystery word is. You only have 7 chances to help PEPINO 🐍 escape! \nGood luck!")
+    print()
+    print("Welcome! \n\nSave PEPINO the 🐍 from BENITO the 🦅 by figuring out what the 5 letter mystery word is. \n\nYou only have 9 chances to help PEPINO 🐍 escape! \n\nGood luck!")
 
 def print_emoji_status(attempts_available):
     # prints how far 🐍 and 🦅 are from eachother    
-    if attempts_available == 7:
+    if attempts_available == 9:
         print ("""
          ....... 🦅💨
     .......
@@ -24,7 +24,30 @@ def print_emoji_status(attempts_available):
          .......
     .......
          .......
+    .......
+         .......
     🐍 😎""")
+    elif attempts_available == 8:
+        print ("""
+    ....... 🦅💨
+         .......
+    .......
+         .......
+    .......
+         .......
+    .......
+         .......
+    🐍 😌""")
+    elif attempts_available == 7:
+        print ("""
+         ....... 🦅💨
+    .......
+         .......
+    .......
+         .......
+    .......
+         .......
+    🐍 😗""")
     elif attempts_available == 6:
         print("""
     ....... 🦅💨
@@ -33,7 +56,7 @@ def print_emoji_status(attempts_available):
          .......
     .......
          .......
-    🐍 ❓""")
+    🐍 🙄""")
     elif attempts_available == 5:
         print("""
          ....... 🦅💨
@@ -66,7 +89,7 @@ def print_emoji_status(attempts_available):
     🐍 🆘""")
     else:
         print("""
-        💥🦅
+         💥🦅
     🐍 😱""")
 
 
@@ -75,12 +98,14 @@ def play_game(mystery_word):
     mystery_word_display = "_" * len(mystery_word)
     game_over = False
     letters_guessed = []
-    attempts_available = 7
+    attempts_available = 9
     print_emoji_status(attempts_available)
+    print()
+    print("Mystery Word:", mystery_word_display, "🔍")
     
     while not game_over and attempts_available > 0:
         print()
-        print ("Please guess a letter.")
+        print ("Please guess a letter.\n")
         guess = input("> ").upper()
         print()
         if len(guess) == 1 and guess.isalpha(): # has to be one letter long and an alphabetical letter
@@ -89,9 +114,8 @@ def play_game(mystery_word):
             elif guess in mystery_word:
                 letters_guessed.append(guess)
                 attempts_available = attempts_available - 1 # move to a function with above line?
-                print("Yippie! 🐍")
-                print(guess,"is in the mystery word!")
-                print()
+                print("Yippie! 🐍\n")
+                print("🌟 Correct guess!", guess,"is in the mystery word.")
 
                 mystery_word_list = list(mystery_word_display) # makes mystery_word_status_display a list
                 
@@ -106,21 +130,22 @@ def play_game(mystery_word):
             else: #if guess not in mystery_word
                 letters_guessed.append(guess)
                 attempts_available = attempts_available - 1
-                print("Muhaha! 🦅")
-                print()
-                print("Incorrect guess❗️", guess,"is not in the word.")
+                print("Muhaha! 🦅\n")
+                print("🚨 Incorrect guess!", guess,"is not in the word.")
 
         else: #if they don't input a single letter or an alphabetical letter
             print("Invalid entry. Please try again!")
         
         print_emoji_status(attempts_available)
         print()
+        print("Chances Left:", attempts_available)
+        print()
         print("Mystery Word:", mystery_word_display, "🔍")
         
     if game_over: #once game_over = True 
-        print("Congrats, you found the mystery word! 🎉 \nPEPINO IS SAFE! 💕 🐍")
+        print("\nCongrats, you found the mystery word! 🎉 \nPEPINO IS SAFE! 💕 🐍")
     else:
-        print("Oh no! 😭 BENITO flew away with PEPINO. 🦅 \nThe mystery word was:", mystery_word, "👀")
+        print("\nOh no! 😭 BENITO flew away with PEPINO. 🦅 \n\nThe mystery word was:", mystery_word, "👀")
     print()
     
 def replay_game():
@@ -157,4 +182,5 @@ start_hangman()
 > Player can guess the entire word 
 > Player can choose level of difficulty which changes how many attempts they have available to them
 > Player can choose a theme for the mystery words they are guessing. Each theme pulls up a different list of mystery words.
+> Make a version en Espanol :)
 > If sounds can be played from terminal, add sounds """
