@@ -129,23 +129,26 @@ The mystery word was: """, mystery_word,"!")
     print()
     
 def replay_game():
-    choice = input("Would you like to play again? Enter 'Y' for yes and 'N' for no. ").upper()
+    # asks player if they want to play again
     while True:
-        if choice == "N":
-            print("Goodbye!")
-            break 
-        elif choice == "Y":
-            print("Awesome! Good luck. 🤗")
-            start_hangman()
+        choice = input("Want to play again? Enter Y for yes or N for No. \n > ").upper() # \n prints what follows on another line
+        if choice == "Y" or choice == "N":
+            return choice
         else:
             print("Please enter Y or N.")
 
 def start_hangman():
     # houses the functions that run the game
-    mystery_word = picking_mystery_word()
-    introducing_game()
-    play_game(mystery_word)
-    replay_game()
+    while True:
+        mystery_word = picking_mystery_word()
+        introducing_game()
+        play_game(mystery_word)
+        choice = replay_game()
+        if choice == "N":
+            print("Goodbye!")
+            break
+        else:
+            print("Awesome! Good luck. 🤗")
 
 start_hangman()
 
