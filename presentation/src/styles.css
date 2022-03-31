@@ -109,6 +109,17 @@ pre {
 .pytutor {
   border: 0.5px #acacac solid;
 }
+
+.list-title {
+  list-style: none;
+  padding-bottom: 10px;
+}
+
+.sub-sub-list {
+  color: #312c57;
+  list-style: disc;
+}
+
 /* color palette by @mobikosmos on twitter*/
 /* 
 #f9e9cc - cream
