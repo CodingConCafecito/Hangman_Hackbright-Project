@@ -172,12 +172,12 @@ def start_hangman():
 
 start_hangman()
 
-#NICE TO HAVES:
+#NICE TO HAVES THAT I KNOW HOW TO IMPLEMENT BUT DIDN'T DUE TO LACK OF TIME:
 """ > Use colorama library to customize the color of the text
     > Use time library to edit how fast/slow specific code is executed
     > Personalize the game more by asking for their name"""
 
-# FUTURE UPDATES:
+# FUTURE UPDATES THAT NEED ADDITIONAL RESEARCH:
 """ 
 > Player can guess the entire word 
 > Player can choose level of difficulty which changes how many attempts they have available to them

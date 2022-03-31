@@ -57,9 +57,21 @@ footer a:hover {
 }
 
 /* explaination+demo */
-.subheadings p {
-  margin: 30px 0 30px 20px;
-  font-size: 30px;
+
+.list-div {
+  color: #e19b52;
+  margin: 30px 0 30px 40px;
+  font-size: 25px;
+}
+
+.list-categories ul {
+  line-height: 50px;
+  color: #ba492a;
+  font-size: 22px;
+}
+
+.sublists {
+  list-style: square;
 }
 
 /* color palette by @mobikosmos on twitter*/
