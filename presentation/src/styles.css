@@ -31,10 +31,10 @@ footer a:hover {
 }
 
 pre {
-  width: 880px;
+  width: 890px;
   height: 150px;
   font-size: 20px;
-  line-height: 30px;
+  line-height: 31px;
 }
 
 .agenda {
@@ -84,8 +84,17 @@ pre {
   color: #ba492a;
 }
 
-.longer-code {
-  height: 300px;
+.challenge1-answer-code {
+  height: 345px;
+}
+
+.challenge2-description-code {
+  height: 375px;
+}
+
+.challenge2-solution-code {
+  height: 720px;
+  width: 1050px;
 }
 
 /* color palette by @mobikosmos on twitter*/

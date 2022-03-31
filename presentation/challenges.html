@@ -29,7 +29,9 @@
           word
         </li>
 
-        <pre class="prettyprint lang-python">
+        <!-- source: https://github.com/googlearchive/code-prettify -->
+
+        <pre class="prettyprint language-python">
           <code>
   def play_game(mystery_word):
     mystery_word_display = "_" * len(mystery_word)
@@ -38,14 +40,14 @@
         </pre>
 
         <li class="challenges-list">
-          It took many, many attempts to understand how I could replace the "_"
-          symbol with a player's correct letter guess.
+          It took many, many attempts to understand the logic of how I could
+          replace the "_" symbol with a player's correct letter guess.
         </li>
 
         <pre class="prettyprint lang-python">
           <code>
-  while not game_over and attempts_available > 0:
-    elif guess in mystery_word:
+    while not game_over and attempts_available > 0:
+      elif guess in mystery_word:
       """ update the "_" with their correct letter guess 🤔 """
           </code>
         </pre>
@@ -55,23 +57,88 @@
           could understand and explain. 🎉
         </li>
 
-        <pre class="prettyprint lang-python longer-code">
+        <pre class="prettyprint lang-python challenge1-answer-code">
           <code>
-      mystery_word_list = list(mystery_word_display)
-      """ convert mystery_word_display to a list """
-      for i, letter in enumerate(mystery_word):
-        if letter == guess:
-          mystery_word_list[i] = guess 
-          """ if letter == guess, then at that index of this list, 
-          the "_" is replaced with the letter guessed """
-          mystery_word_display = "".join(mystery_word_list) 
-          """ joins all the elements in the list """
+        mystery_word_list = list(mystery_word_display)
+        """ convert mystery_word_display to a list """
+        for i, letter in enumerate(mystery_word):
+          if letter == guess:
+            mystery_word_list[i] = guess 
+            """ if letter == guess, then at that index of this list, 
+            the "_" is replaced with the letter guessed """
+            mystery_word_display = "".join(mystery_word_list) 
+            """ joins all the elements in the list """
           </code>
-
-
         </pre>
       </ul>
-      <p>Terminating the program based on the player's input</p>
+
+      <p>Terminating the Program</p>
+      <ul>
+        <li class="challenges-list">
+          After the user completes at least one round of the game, I wanted to
+          call a function that would allow them to exit the program.
+        </li>
+
+        <pre class="prettyprint lang-python challenge2-description-code">
+          <code>
+  def replay_game():
+  """ asks player if they want to play again """
+  def start_hangman():
+  """ houses the functions that run the game """
+    mystery_word = picking_mystery_word()
+    introducing_game()
+    play_game(mystery_word)
+    choice = replay_game()
+
+  start_hangman()
+          </code>
+        </pre>
+
+        <li class="challenges-list">
+          I kept running into the same bug: once the player choose to leave the
+          program, they would be asked again if they wanted to replay. The
+          program wouldn't break.
+        </li>
+        <img
+          src="https://media2.giphy.com/media/Ll22OhMLAlVDb8UQWe/giphy.gif?cid=790b761120c3af142917afdc50de8ef7da23c15f3c044846&rid=giphy.gif&ct=s"
+          alt="coding-error-gif"
+          id="gif"
+        />
+
+        <li>
+          I was finally able to successfully debug when realized that if I
+          wanted to outsource a part of the code to a different function outside
+          of the main one that begins the program, I would need to be very
+          specific with what it would return.
+        </li>
+
+        <pre class="prettyprint lang-python challenge2-solution-code">
+          <code>
+  def replay_game():
+    while True:
+      choice = input("Want to play again? Enter Y for yes or N for No. \n> ").upper()
+      if choice == "Y" or choice == "N":
+        return choice
+      else:
+        print("Please enter Y or N.")
+
+  def start_hangman():
+    while True:
+    """ allows us to use break """
+      mystery_word = picking_mystery_word()
+      introducing_game()
+      play_game(mystery_word)
+      choice = replay_game()
+      if choice == "N":
+      """ dependent on what is returned from replay_game() """
+        print("Goodbye!")
+        break
+      else:
+        print("Awesome! Good luck. 🤗")
+
+          </code>
+        </pre>
+      </ul>
     </div>
   </body>
 </html>
