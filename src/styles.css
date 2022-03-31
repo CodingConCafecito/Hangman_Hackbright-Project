@@ -7,6 +7,20 @@ h1 {
   font-weight: 400;
   margin: 30px 0 30px 40px;
 }
+footer {
+  margin: 30px 0 30px 40px;
+  font-size: 25px;
+}
+
+footer a {
+  color: black;
+}
+
+footer a:hover {
+  color: #885df1;
+  transition: all 500ms ease;
+}
+
 .agenda {
   font-size: 25px;
   color: brown;
@@ -14,10 +28,14 @@ h1 {
   font-family: "Red Hat Mono", monospace;
 }
 
+.agenda p {
+  text-decoration: underline;
+  margin-bottom: -10px;
+}
 .agenda ul {
   list-style: square;
 }
 
 .agenda li {
-  line-height: 40px;
+  line-height: 45px;
 }
