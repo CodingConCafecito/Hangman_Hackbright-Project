@@ -150,12 +150,11 @@ def play_game(mystery_word):
     
 def replay_game():
     # asks player if they want to play again
-    while True:
-        choice = input("Want to play again? Enter Y for yes or N for No. \n> ").upper() # \n prints what follows on another line
-        if choice == "Y" or choice == "N":
-            return choice
-        else:
-            print("Please enter Y or N.")
+    choice = input("Want to play again? Enter Y for yes or N for No. \n> ").upper() # \n prints what follows on another line
+    if choice == "Y" or choice == "N":
+        return choice
+    else:
+        print("Please enter Y or N.")
 
 def start_hangman():
     # houses the functions that run the game
