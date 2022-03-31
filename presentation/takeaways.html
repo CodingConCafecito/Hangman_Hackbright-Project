@@ -18,6 +18,48 @@
     <title>Takeaways</title>
   </head>
   <body>
-    <h1>yay</h1>
+    <h1>Meaningful Takeaways</h1>
+    <div class="list-div">
+      <p>Pseudocode</p>
+      <ul class="list-categories">
+        <li>Writing It</li>
+        <ul class="sublists takeaways-list">
+          <li>
+            Don't worry too much about how you will organize the code into
+            different functions, you will figure that out later. Get down as
+            much of your thinking and logic as possible.
+          </li>
+          <li>
+            Have very clear distinctions on what are requirements versus nice to
+            haves. You can modify these lists later as you program, but get one
+            down at the start to have a clear plan of action.
+          </li>
+        </ul>
+      </ul>
+      <p>Debugging</p>
+      <ul class="list-categories">
+        <li>Testing</li>
+        <ul class="sublists takeaways-list">
+          <li>Run your code constantly, especially early on and when you are unsure. This will help you save time later.
+          </li>
+        </ul>
+        <li>GitHub Desktop</li>
+        <ul class="sublists takeaways-list">
+            <li>Review changes before committing to see how you've progressed with that bug.</li>
+            <img
+            src="images/GitHub-Desktop-Example.png"
+            alt="GitHub-Screenshot"
+            id="screenshot"
+            width="800"
+            height="400"
+        />
+        </ul>
+        <li>PythonTutor.com</li>
+        <ul class="sublists takeaways-list">
+          <li>Don't guess! Use this resource to visually see what is going on.</li>
+          <li>Googling is helpful, but if you don't understand someone else's logic, run their code through this visualizer. You'll learn so much making sense of it for yourself.</li>
+          <iframe class="pytutor"  width="800" height="600"  src="https://pythontutor.com/iframe-embed.html#code=import%20random%0Aword_list%20%3D%20%5B%22hello%22,%20%22blues%22,%20%22house%22,%20%22berry%22%5D%0A%0Adef%20picking_mystery_word%28%29%3A%0A%20%20%20%20%23returns%20%20random%20mystery%20word%20that%20player%20has%20to%20guess%20%0A%20%20%20%20word%20%3D%20random.choice%28word_list%29.upper%28%29%0A%20%20%20%20return%20word%0A%0Adef%20play_game%28mystery_word%29%3A%0A%20%20%20%20mystery_word_display%20%3D%20%22_%22%20*%20len%28mystery_word%29%0A%20%20%20%20game_over%20%3D%20False%0A%20%20%20%20letters_guessed%20%3D%20%5B%5D%0A%20%20%20%20attempts_available%20%3D%207%0A%20%20%20%20%0A%20%20%20%20while%20not%20game_over%20and%20attempts_available%20%3E%200%3A%0A%20%20%20%20%20%20%20%20print%28%29%0A%20%20%20%20%20%20%20%20print%20%28%22Please%20guess%20a%20letter.%22%29%0A%20%20%20%20%20%20%20%20guess%20%3D%20input%28%22%3E%20%22%29.upper%28%29%0A%20%20%20%20%20%20%20%20print%28%29%0A%20%20%20%20%20%20%20%20if%20len%28guess%29%20%3D%3D%201%20and%20guess.isalpha%28%29%3A%20%23%20has%20to%20be%20one%20letter%20long%20and%20an%20alphabetical%20letter%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20guess%20in%20letters_guessed%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20print%28%22You've%20already%20guessed%20%22,%20guess,%20%22.%20Try%20again!%22%29%0A%20%20%20%20%20%20%20%20%20%20%20%20elif%20guess%20in%20mystery_word%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20letters_guessed.append%28guess%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20attempts_available%20%3D%20attempts_available%20-%201%20%23%20move%20to%20a%20function%20with%20above%20line%3F%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20print%28%22Yippie!%20%F0%9F%90%8D%22%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20print%28%29%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20mystery_word_list%20%3D%20list%28mystery_word_display%29%20%23%20makes%20mystery_word_status_display%20a%20list%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20for%20i,%20letter%20in%20enumerate%28mystery_word%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20letter%20%3D%3D%20guess%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20mystery_word_list%5Bi%5D%20%3D%20guess%20%23%20if%20letter%20%3D%3D%20guess,%20then%20at%20that%20index%20of%20this%20%20list,%20the%20%22_%22%20is%20replaced%20with%20the%20letter%20guessed%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20mystery_word_display%20%3D%20%22%22.join%28mystery_word_list%29%20%23%20joins%20all%20the%20elements%20in%20the%20list%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20%22_%22%20not%20in%20mystery_word_display%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20game_over%20%3D%20True%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20else%3A%20%23if%20guess%20not%20in%20mystery_word%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20letters_guessed.append%28guess%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20attempts_available%20%3D%20attempts_available%20-%201%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20print%28%22Incorrect%20guess%E2%9D%97%EF%B8%8F%22,%20guess,%22is%20not%20in%20the%20word.%22%29%0A%0A%20%20%20%20%20%20%20%20else%3A%20%23if%20they%20don't%20input%20a%20single%20letter%20or%20an%20alphabetical%20letter%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28%22Invalid%20entry.%20Please%20try%20again!%22%29%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20print%28%29%0A%20%20%20%20%20%20%20%20print%28%22Mystery%20Word%3A%22,%20mystery_word_display,%20%22%F0%9F%94%8D%22%29%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20if%20game_over%3A%20%23once%20game_over%20%3D%20True%20%0A%20%20%20%20%20%20%20%20print%28%22Congrats%22%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20print%28%22Oh%20no!%22%29%0A%20%20%20%20print%28%29%0A%0Adef%20replay_game%28%29%3A%0A%20%20%20%20while%20True%3A%0A%20%20%20%20%20%20%20%20choice%20%3D%20input%28%22Want%20to%20replay%3F%20Y/N%20%22%29.upper%28%29%0A%20%20%20%20%20%20%20%20if%20choice%20%3D%3D%20%22Y%22%20or%20choice%20%3D%3D%20%22N%22%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20choice%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28%22Please%20enter%20Y%20or%20N.%22%29%0A%0Adef%20start_hangman%28%29%3A%0A%20%20%20%20while%20True%3A%0A%20%20%20%20%20%20%20%20mystery_word%20%3D%20picking_mystery_word%28%29%0A%20%20%20%20%20%20%20%20play_game%28mystery_word%29%0A%20%20%20%20%20%20%20%20choice%20%3D%20replay_game%28%29%0A%20%20%20%20%20%20%20%20if%20choice%20%3D%3D%20%22N%22%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28%22Goodbye!%22%29%0A%20%20%20%20%20%20%20%20%20%20%20%20break%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28%22Awesome!%20Good%20luck.%20%F0%9F%A4%97%22%29%0A%0Astart_hangman%28%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"></iframe>
+        </ul>
+    </div>
   </body>
 </html>

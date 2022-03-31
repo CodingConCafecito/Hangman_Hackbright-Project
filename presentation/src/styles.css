@@ -80,6 +80,10 @@ pre {
   list-style: square;
 }
 
+.list-div {
+  font-size: 22px;
+}
+
 .challenges-list {
   color: #ba492a;
 }
@@ -93,10 +97,18 @@ pre {
 }
 
 .challenge2-solution-code {
-  height: 720px;
-  width: 1050px;
+  height: 690px;
 }
 
+.takeaways-list li {
+  line-height: 30px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.pytutor {
+  border: 0.5px #acacac solid;
+}
 /* color palette by @mobikosmos on twitter*/
 /* 
 #f9e9cc - cream
