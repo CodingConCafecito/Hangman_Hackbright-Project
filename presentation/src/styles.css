@@ -1,0 +1,72 @@
+body {
+  font-family: "Red Hat Mono", monospace;
+  color: #f9e9cc;
+}
+
+h1 {
+  color: #312c57;
+  font-size: 60px;
+  font-weight: 400;
+  margin: 30px 0 30px 40px;
+}
+
+p {
+  color: #4587ac;
+}
+
+footer {
+  margin: 30px 0 30px 40px;
+  font-size: 25px;
+}
+
+footer,
+footer a {
+  color: #312c57;
+}
+
+footer a:hover {
+  color: #4587ac;
+  transition: all 400ms ease;
+}
+
+.agenda,
+.subheadings {
+  font-size: 25px;
+  color: #ba492a;
+  margin: 10px 0 10px 40px;
+  font-family: "Red Hat Mono", monospace;
+}
+
+.agenda p {
+  text-decoration: underline;
+  margin-bottom: -10px;
+}
+
+.agenda li {
+  line-height: 45px;
+}
+
+.agenda a {
+  text-decoration: none;
+  color: #ba492a;
+}
+
+.agenda a:hover {
+  color: #e19b52;
+  transition: all 400ms ease;
+}
+
+/* explaination+demo */
+.subheadings p {
+  margin: 30px 0 30px 20px;
+  font-size: 30px;
+}
+
+/* color palette by @mobikosmos on twitter*/
+/* 
+#f9e9cc - cream
+#e19b52 - yellow/orange
+#ba492a - brown
+#4587ac - blue
+#312c57 - purple
+*/
