@@ -4,13 +4,74 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Red+Hat+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/1ac92020ff.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="src/styles.css" />
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+
     <title>Challenges</title>
   </head>
   <body>
-    <h1>challenges</h1>
-    <ul>
-      <li>Replacing "_" with a correct guess</li>
-      <li>Terminating the program based on the player's input</li>
-    </ul>
+    <h1>My Coding/Debugging Challenges</h1>
+    <div class="list-div">
+      <p>Updating The Player's Progress</p>
+      <ul>
+        <li class="challenges-list">
+          I used the "_" symbol to represent/display the letters in the mystery
+          word
+        </li>
+
+        <pre class="prettyprint lang-python">
+          <code>
+  def play_game(mystery_word):
+    mystery_word_display = "_" * len(mystery_word)
+    print("Mystery Word:", mystery_word_display, "🔍")
+          </code>
+        </pre>
+
+        <li class="challenges-list">
+          It took many, many attempts to understand how I could replace the "_"
+          symbol with a player's correct letter guess.
+        </li>
+
+        <pre class="prettyprint lang-python">
+          <code>
+  while not game_over and attempts_available > 0:
+    elif guess in mystery_word:
+      """ update the "_" with their correct letter guess 🤔 """
+          </code>
+        </pre>
+
+        <li>
+          Eventually I was able to create a for loop that worked and one that I
+          could understand and explain. 🎉
+        </li>
+
+        <pre class="prettyprint lang-python longer-code">
+          <code>
+      mystery_word_list = list(mystery_word_display)
+      """ convert mystery_word_display to a list """
+      for i, letter in enumerate(mystery_word):
+        if letter == guess:
+          mystery_word_list[i] = guess 
+          """ if letter == guess, then at that index of this list, 
+          the "_" is replaced with the letter guessed """
+          mystery_word_display = "".join(mystery_word_list) 
+          """ joins all the elements in the list """
+          </code>
+
+
+        </pre>
+      </ul>
+      <p>Terminating the program based on the player's input</p>
+    </div>
   </body>
 </html>

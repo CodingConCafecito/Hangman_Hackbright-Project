@@ -113,7 +113,7 @@ def play_game(mystery_word):
                 print("You've already guessed ", guess, ". Try again!")
             elif guess in mystery_word:
                 letters_guessed.append(guess)
-                attempts_available = attempts_available - 1 # move to a function with above line?
+                attempts_available = attempts_available - 1
                 print("Yippie! 🐍\n")
                 print("🌟 Correct guess!", guess,"is in the mystery word.")
 
